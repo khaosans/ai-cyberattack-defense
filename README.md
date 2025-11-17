@@ -103,6 +103,9 @@ streamlit run dashboard/app.py
 
 The dashboard will open automatically at `http://localhost:8501`
 
+## 📸 Application Screenshots
+
+### Main Dashboard
 ![Threat Analysis and Detection System Dashboard](docs/screenshots/dashboard/main-dashboard.png)
 *Main dashboard interface featuring simulation controls, AI analysis settings (Ollama integration), threat level gauge showing current threat level (0-100 scale), threat score timeline with threshold indicators, and pattern distribution visualizations. The dashboard displays real-time detection metrics and provides interactive controls for starting/stopping simulations and triggering attacks.*
 
@@ -133,6 +136,7 @@ python3 verify_setup.py      # Verify setup is complete
 - **Database Persistence**: SQLite storage for detection history
 - **Export Capabilities**: Download detection logs and reports
 
+### Threat Detection Overview
 ![Threat Detection Dashboard - Real-time AI Pattern Detection System](docs/screenshots/dashboard/threat-detection-overview.png)
 *Comprehensive threat analysis dashboard showing the threat timeline visualization, current threat level gauge (semi-circular gauge with color-coded zones: green for normal, yellow for suspicious, red for malicious), threat score timeline graph with threshold lines, and status indicators. The dashboard provides real-time monitoring of 65+ detections with live update capabilities when simulation is running.*
 
@@ -144,6 +148,7 @@ python3 verify_setup.py      # Verify setup is complete
 - **Threat Scoring**: 0-100 threat score with severity classification
 - **Real-Time Alerts**: Color-coded alerts for suspicious and malicious activity
 
+### Attack Pattern Distribution
 ![Attack Pattern Distribution and Detection Analysis](docs/screenshots/dashboard/pattern-distribution.png)
 *Attack pattern distribution bar chart displaying four pattern types: normal (green, ~40 count), behavioral_anomaly (orange, ~1-2 count), superhuman_speed (red, ~1-2 count), and systematic_enumeration (blue, ~15 count). The dashboard also shows recent alerts with severity indicators (MEDIUM severity shown) and a recent detections table with timestamps, threat scores, threat levels, and endpoint information for each detection.*
 
@@ -151,6 +156,7 @@ python3 verify_setup.py      # Verify setup is complete
 
 The dashboard includes an integrated AI security assistant powered by Ollama LLM, providing real-time threat analysis, explanations, and security guidance.
 
+### AI Security Assistant
 ![AI Security Assistant - Threat Analysis Chat Interface](docs/screenshots/dashboard/security-assistant.png)
 *Interactive AI-powered security assistant chat interface ("Ask Security Assistant") that provides detailed explanations of threat intelligence charts and visualizations. The assistant explains campaign timelines (GTG-1002), attack patterns, key events like initial infection, first wave attacks, anomaly detection, and campaign scaling. Users can ask questions about threats, detection methods, and security best practices.*
 
