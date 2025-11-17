@@ -76,8 +76,9 @@ function PureChatHeader({
         asChild
       >
         <Link
-          href={`https://vercel.com/new/clone?repository-url=https://github.com/vercel/ai-chatbot&env=AUTH_SECRET&envDescription=Learn more about how to get the API Keys for the application&envLink=https://github.com/vercel/ai-chatbot/blob/main/.env.example&demo-title=AI Chatbot&demo-description=An Open-Source AI Chatbot Template Built With Next.js and the AI SDK by Vercel.&demo-url=https://chat.vercel.ai&products=[{"type":"integration","protocol":"ai","productSlug":"grok","integrationSlug":"xai"},{"type":"integration","protocol":"storage","productSlug":"neon","integrationSlug":"neon"},{"type":"integration","protocol":"storage","productSlug":"upstash-kv","integrationSlug":"upstash"},{"type":"blob"}]`}
-          target="_noblank"
+          href={`https://vercel.com/new/clone?repository-url=https://github.com/khaosans/ai-cyberattack-defense&env=AUTH_SECRET&envDescription=Authentication secret for NextAuth&envLink=https://github.com/khaosans/ai-cyberattack-defense&demo-title=AI Cyberattack Defense&demo-description=AI-Driven Cyberattack Defense: GTG-1002 Threat Analysis&products=[]`}
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <VercelIcon size={16} />
           Deploy with Vercel
