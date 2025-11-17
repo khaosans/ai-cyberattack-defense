@@ -4,7 +4,7 @@
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![CI](https://github.com/khaosans/ai-cyberattack-defense/workflows/CI/badge.svg)](https://github.com/khaosans/ai-cyberattack-defense/actions)
 
-## 📖 Preface
+## 📖 About This Project
 
 ### Why This Repository Exists
 
@@ -28,15 +28,93 @@ Traditional security tools are designed to detect human-operated attacks with pr
 
 This repository provides the tools and knowledge needed to detect, analyze, and defend against these next-generation threats.
 
+### Who Is This For?
+
+This project serves multiple audiences:
+
+- **🔒 Security Professionals**: SOC analysts, incident responders, and security engineers seeking practical tools to detect AI-driven attacks
+- **🎓 Researchers & Academics**: Those studying AI security, threat detection, and cybersecurity who need documented case studies and research foundations
+- **👨‍🏫 Educators**: Instructors teaching cybersecurity, AI security, or threat analysis who want hands-on demonstration tools
+- **📚 Students**: Learners exploring cybersecurity concepts, AI threats, and defensive strategies through practical examples
+- **🏢 Organizations**: Security teams evaluating defense strategies against emerging AI-powered threats
+- **🔧 Developers**: Engineers building security tools who need reference implementations and architectural patterns
+
+### What Problems Does This Solve?
+
+**Problem 1: Detection Gap**
+- Traditional security tools miss AI-driven attacks that operate at superhuman speeds
+- **Solution**: Real-time behavioral pattern detection specifically designed for AI attack characteristics
+
+**Problem 2: Knowledge Gap**
+- Limited understanding of how AI-driven attacks differ from traditional threats
+- **Solution**: Comprehensive threat analysis, case studies, and documentation explaining GTG-1002 patterns
+
+**Problem 3: Analysis Overload**
+- Security teams overwhelmed by alerts without context or guidance
+- **Solution**: AI-powered security assistant that explains threats and provides actionable recommendations
+
+**Problem 4: Research Foundation**
+- Academic research on AI-driven attacks lacks practical implementation examples
+- **Solution**: Working demonstration system with documented architecture and research foundations
+
+**Problem 5: Educational Resources**
+- Limited hands-on tools for learning AI security concepts
+- **Solution**: Interactive dashboard with attack simulation and visual threat analysis
+
+### Key Use Cases
+
+1. **Threat Detection Demonstration**
+   - Run attack simulations to see AI-driven attack patterns in action
+   - Visualize threat detection in real-time with interactive dashboards
+   - Understand detection algorithms through practical examples
+
+2. **Security Training & Education**
+   - Use as a teaching tool for cybersecurity courses
+   - Demonstrate AI attack characteristics vs. human-operated attacks
+   - Practice threat analysis and incident response procedures
+
+3. **Research & Development**
+   - Foundation for academic research on AI-driven attack detection
+   - Reference implementation for building production security systems
+   - Testbed for evaluating new detection algorithms
+
+4. **Proof of Concept**
+   - Demonstrate detection capabilities to stakeholders
+   - Evaluate defense strategies against AI-driven attacks
+   - Validate security architecture decisions
+
+5. **Threat Intelligence Analysis**
+   - Analyze GTG-1002 campaign patterns and methodologies
+   - Study documented case studies and threat intelligence
+   - Understand AI attack characteristics and defense requirements
+
 ### What You'll Find Here
 
-This repository contains a demonstration defense system including:
-- **Real-time AI pattern detection engine** with behavioral analysis and threat scoring
-- **Interactive threat analysis dashboard** with live visualizations and alerting
-- **AI-powered security assistant** for threat explanation and guidance
-- **Comprehensive threat intelligence documentation** and case studies
-- **Research foundations** with academic citations and implementation roadmaps
-- **Demonstration code** with testing and CI/CD pipeline for educational purposes
+This repository contains a **demonstration defense system** including:
+
+- **🔍 Real-time AI pattern detection engine** with behavioral analysis and threat scoring
+- **📊 Interactive threat analysis dashboard** with live visualizations and alerting
+- **🤖 AI-powered security assistant** for threat explanation and guidance
+- **📚 Comprehensive threat intelligence documentation** and case studies
+- **🔬 Research foundations** with academic citations and implementation roadmaps
+- **🧪 Demonstration code** with testing and CI/CD pipeline for educational purposes
+
+### Quick Value Proposition
+
+**For Security Teams**: Get hands-on experience detecting AI-driven attacks with a working demonstration system that shows real-time threat detection, behavioral analysis, and AI-enhanced security operations.
+
+**For Researchers**: Access comprehensive threat analysis, documented case studies, research foundations with academic citations, and a reference implementation for studying AI-driven attack detection.
+
+**For Educators**: Use an interactive teaching tool with attack simulation, visual threat analysis, and comprehensive documentation to teach AI security concepts effectively.
+
+**For Developers**: Reference a working implementation with documented architecture, detection algorithms, and integration patterns for building production security systems.
+
+### Getting Started
+
+- **New to the project?** Start with the [Quick Start Guide](./QUICKSTART.md)
+- **Want to understand the threat?** Read [Threat Analysis: GTG-1002](./Threat_Analysis_GTG-1002.md)
+- **Ready to explore?** Run the [Dashboard Demo](./DEMO_GUIDE.md)
+- **Need technical details?** See [Architecture Documentation](./docs/ARCHITECTURE.md)
 
 ---
 
