@@ -30,13 +30,13 @@ This repository provides the tools and knowledge needed to detect, analyze, and 
 
 ### What You'll Find Here
 
-This repository contains a complete defense system including:
+This repository contains a demonstration defense system including:
 - **Real-time AI pattern detection engine** with behavioral analysis and threat scoring
 - **Interactive threat analysis dashboard** with live visualizations and alerting
 - **AI-powered security assistant** for threat explanation and guidance
 - **Comprehensive threat intelligence documentation** and case studies
 - **Research foundations** with academic citations and implementation roadmaps
-- **Production-ready code** with comprehensive testing and CI/CD pipeline
+- **Demonstration code** with testing and CI/CD pipeline for educational purposes
 
 ---
 
@@ -430,16 +430,16 @@ See [Architecture Documentation](./docs/ARCHITECTURE.md) for detailed system arc
 
 ## 🔄 CI/CD Pipeline
 
-This project uses GitHub Actions for continuous integration and deployment. The CI pipeline ensures code quality, security, and reliability.
+This project uses GitHub Actions for continuous integration. The CI pipeline ensures code quality and basic functionality for demonstration purposes.
 
 ### CI Workflow Features
 
-- **Automated Testing**: Runs unit and integration tests across Python 3.8, 3.10, and 3.11
+- **Automated Testing**: Runs unit and integration tests across Python 3.10 and 3.11 (skipping Ollama-dependent tests)
 - **Code Quality Checks**: Enforces formatting (Black), import sorting (isort), and linting (flake8)
-- **Security Scanning**: Scans code for security vulnerabilities using Bandit and dependency checks
-- **Coverage Reporting**: Maintains 80%+ code coverage requirement with detailed reports
+- **TypeScript Checks**: Runs linting and build checks for the Next.js frontend
+- **Coverage Reporting**: Maintains 60%+ code coverage requirement for demonstration purposes
 - **Parallel Execution**: Runs tests and checks in parallel for faster feedback
-- **Cost Optimization**: Uses caching, conditional execution, and minimal matrix strategy
+- **Lean Configuration**: Uses caching and minimal matrix strategy for efficient CI runs
 
 ### CI Status
 
@@ -450,22 +450,11 @@ The CI pipeline runs automatically on:
 
 View the latest CI status: [![CI](https://github.com/khaosans/ai-cyberattack-defense/workflows/CI/badge.svg)](https://github.com/khaosans/ai-cyberattack-defense/actions)
 
-### Pre-commit Hooks
-
-This project includes pre-commit hooks for local development. Install and activate them:
-
-```bash
-pip install pre-commit
-pre-commit install
-```
-
-The hooks automatically check formatting, imports, and linting before commits.
-
 ### Running Tests Locally
 
 ```bash
-# Run all tests with coverage
-pytest tests/ -v --cov=ai_tools --cov-report=term-missing
+# Run all tests with coverage (skip Ollama-dependent tests)
+pytest tests/ -v -m "not requires_ollama" --cov=ai_tools --cov-report=term-missing
 
 # Run only unit tests
 pytest tests/unit/ -v
@@ -482,8 +471,7 @@ pytest tests/ -v -m "not requires_ollama"
 - **Formatting**: Black with 100 character line length
 - **Import Sorting**: isort with Black profile
 - **Linting**: flake8 with max line length 100
-- **Coverage**: Minimum 80% code coverage required
-- **Security**: Bandit security scanning on all Python code
+- **Coverage**: Minimum 60% code coverage for demonstration purposes
 
 ## 🤝 Contributing
 
@@ -495,7 +483,9 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 
 ## ⚠️ Disclaimer
 
-This repository contains analysis based on publicly available threat intelligence reports. The information is provided for **educational and defensive purposes only**. Organizations should consult with qualified cybersecurity professionals when implementing security measures.
+This repository contains analysis based on publicly available threat intelligence reports. The information is provided for **educational and demonstration purposes only**. 
+
+**This is a demonstration project** intended to illustrate concepts and provide educational value. It is not production-ready software and should not be used in production environments without significant additional development, security hardening, and professional review. Organizations should consult with qualified cybersecurity professionals when implementing security measures.
 
 ## 🔗 Additional Resources
 
@@ -511,5 +501,5 @@ For questions or concerns about this repository, please open an issue or contact
 ---
 
 **Last Updated:** November 2025  
-**Status:** Active Development  
+**Status:** Demonstration / Research Project  
 **Version:** 1.0.0
