@@ -75,6 +75,25 @@ site/
 /blob-report/
 /playwright/*
 
+# Next.js
+.next/
+out/
+.vercel
+*.tsbuildinfo
+next-env.d.ts
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+
+# ChromaDB
+chroma_db/
+*.chroma
+
 # Misc
 *.pem
 
