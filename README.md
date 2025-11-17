@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![CI](https://github.com/khaosans/ai-chatbot/workflows/CI/badge.svg)](https://github.com/khaosans/ai-chatbot/actions)
+[![CI](https://github.com/khaosans/ai-cyberattack-defense/workflows/CI/badge.svg)](https://github.com/khaosans/ai-cyberattack-defense/actions)
 
 This repository contains comprehensive analysis, defense tools, and case studies based on the first documented AI-orchestrated cyber espionage campaign, as reported by Anthropic Threat Intelligence in November 2025.
 
@@ -299,7 +299,7 @@ The CI pipeline runs automatically on:
 - All pull requests
 - Manual workflow dispatch
 
-View the latest CI status: [![CI](https://github.com/khaosans/ai-chatbot/workflows/CI/badge.svg)](https://github.com/khaosans/ai-chatbot/actions)
+View the latest CI status: [![CI](https://github.com/khaosans/ai-cyberattack-defense/workflows/CI/badge.svg)](https://github.com/khaosans/ai-cyberattack-defense/actions)
 
 ### Pre-commit Hooks
 
