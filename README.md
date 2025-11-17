@@ -31,12 +31,12 @@ This repository provides the tools and knowledge needed to detect, analyze, and 
 ### What You'll Find Here
 
 This repository contains a complete defense system including:
-- Real-time AI pattern detection engine
-- Interactive threat analysis dashboard
-- Comprehensive threat intelligence documentation
-- Case studies and response strategies
-- Research foundations and academic citations
-- Production-ready code with comprehensive testing
+- **Real-time AI pattern detection engine** with behavioral analysis and threat scoring
+- **Interactive threat analysis dashboard** with live visualizations and alerting
+- **AI-powered security assistant** for threat explanation and guidance
+- **Comprehensive threat intelligence documentation** and case studies
+- **Research foundations** with academic citations and implementation roadmaps
+- **Production-ready code** with comprehensive testing and CI/CD pipeline
 
 ---
 
@@ -103,6 +103,9 @@ streamlit run dashboard/app.py
 
 The dashboard will open automatically at `http://localhost:8501`
 
+![AI Cyberattack Defense Dashboard - Threat Analysis and Detection System](docs/screenshots/dashboard/main-dashboard.png)
+*Main dashboard interface showing real-time threat detection, threat level gauge, and threat timeline visualizations*
+
 **Quick Verification:**
 ```bash
 python3 check_environment.py  # Check all dependencies
@@ -124,10 +127,14 @@ python3 verify_setup.py      # Verify setup is complete
 
 - **Real-Time Detection**: Identifies AI-driven attack patterns (superhuman speed, enumeration, anomalies)
 - **AI-Enhanced Analysis**: Ollama LLM integration for threat explanations and recommendations
+- **Security Assistant**: Interactive AI-powered security Q&A for threat analysis and guidance
 - **Interactive Visualizations**: Live charts, threat timeline, and pattern distribution
 - **Threat Correlation**: Vector database for finding similar attacks and threat clustering
 - **Database Persistence**: SQLite storage for detection history
 - **Export Capabilities**: Download detection logs and reports
+
+![Threat Detection Dashboard - Real-time AI Pattern Detection System](docs/screenshots/dashboard/threat-detection-overview.png)
+*Comprehensive threat analysis dashboard featuring threat level gauge, timeline visualizations, and real-time detection metrics*
 
 ### Detection Capabilities
 
@@ -136,6 +143,16 @@ python3 verify_setup.py      # Verify setup is complete
 - **Behavioral Anomalies**: Statistical deviation detection using Isolation Forest
 - **Threat Scoring**: 0-100 threat score with severity classification
 - **Real-Time Alerts**: Color-coded alerts for suspicious and malicious activity
+
+![Attack Pattern Distribution and Detection Analysis](docs/screenshots/dashboard/pattern-distribution.png)
+*Attack pattern distribution visualization showing detection patterns, recent alerts, and threat classification across normal, behavioral anomaly, superhuman speed, and systematic enumeration categories*
+
+### AI-Powered Security Assistant
+
+The dashboard includes an integrated AI security assistant powered by Ollama LLM, providing real-time threat analysis, explanations, and security guidance.
+
+![AI Security Assistant - Threat Analysis Chat Interface](docs/screenshots/dashboard/security-assistant.png)
+*Interactive AI security assistant providing contextual threat analysis, chart explanations, and security recommendations for detected attack patterns*
 
 ## 📁 Repository Structure
 
