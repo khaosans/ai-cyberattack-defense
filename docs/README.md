@@ -24,6 +24,7 @@ This directory contains comprehensive documentation for the AI Pattern Detector 
 ### Testing Documentation
 
 - **[Test Plan](./TEST_PLAN.md)**: Comprehensive manual test procedures
+- **[Testing Roadmap](./TESTING_ROADMAP.md)**: Roadmap for improving the testing suite
 - **[Demo Verification](./DEMO_VERIFICATION.md)**: Demo verification checklist
 - **[Demo Output](./DEMO_OUTPUT.md)**: Automated test results and system verification
 - **[Screenshots](./screenshots/)**: Visual documentation of the dashboard (see `MANUAL_INSTRUCTIONS.md` for capture guide)

@@ -8,7 +8,7 @@
 
 ### Why This Repository Exists
 
-In November 2025, Anthropic's Threat Intelligence team documented **GTG-1002**—the first large-scale, AI-orchestrated cyber espionage campaign. This event marked a paradigm shift in cybersecurity: AI agents executed 80-90% of attack operations autonomously, demonstrating capabilities that fundamentally challenge traditional defense strategies.
+In November 2025, Anthropic's Threat Intelligence team documented **GTG-1002**—the first large-scale, AI-orchestrated cyber espionage campaign (Anthropic, 2025). This event marked a paradigm shift in cybersecurity: AI agents executed 80-90% of attack operations autonomously, demonstrating capabilities that fundamentally challenge traditional defense strategies.
 
 **This repository exists to:**
 
@@ -122,7 +122,7 @@ This repository contains comprehensive analysis, defense tools, and case studies
 
 ## 📋 Overview
 
-In late 2025, Anthropic's Threat Intelligence team identified and disrupted a sophisticated cyber espionage operation designated **GTG-1002**. This campaign represented a fundamental shift in cyber threat capabilities, demonstrating that AI can now autonomously execute cyberattacks at unprecedented scale—with **80-90% of tactical operations executed without human intervention**.
+In late 2025, Anthropic's Threat Intelligence team identified and disrupted a sophisticated cyber espionage operation designated **GTG-1002** (Anthropic, 2025). This campaign represented a fundamental shift in cyber threat capabilities, demonstrating that AI can now autonomously execute cyberattacks at unprecedented scale—with **80-90% of tactical operations executed without human intervention**.
 
 ### What This Repository Provides
 
@@ -412,6 +412,7 @@ Together, these components provide a complete picture: **detection** (Main Dashb
 - **[Demo Output](./docs/DEMO_OUTPUT.md)**: Automated test results
 - **[CLI Testing](./CLI_TEST_README.md)**: Command-line testing guide
 - **[Test Plan](./docs/TEST_PLAN.md)**: Comprehensive test procedures
+- **[Testing Roadmap](./docs/TESTING_ROADMAP.md)**: Roadmap for improving the testing suite
 
 📖 **Full Documentation Index**: See [docs/README.md](./docs/README.md)
 
@@ -566,10 +567,12 @@ This repository contains analysis based on publicly available threat intelligenc
 
 ## 🔗 Additional Resources
 
-- [Anthropic Threat Intelligence](https://www.anthropic.com/research)
-- [Ollama AI Platform](https://ollama.ai)
-- Industry threat sharing groups (ISACs)
-- [ChromaDB Documentation](https://docs.trychroma.com)
+- [Anthropic Threat Intelligence](https://www.anthropic.com/research) - Source for GTG-1002 threat intelligence (Anthropic, 2025)
+- [Ollama AI Platform](https://ollama.ai) - Local LLM platform used for AI analysis
+- Industry threat sharing groups (ISACs) - Information sharing organizations
+- [ChromaDB Documentation](https://docs.trychroma.com) - Vector database documentation
+
+**Citations**: For complete academic citations and references, see [CITATIONS.md](./CITATIONS.md) and [Research Foundation](./docs/RESEARCH_FOUNDATION.md).
 
 ## 📧 Contact
 
