@@ -99,4 +99,4 @@ chroma_db/
 
 # Test images (keep test-image.jpg but ignore other unrelated images)
 public/images/mouth of the seine, monet.jpg
-image/README/
+# image/README/ - Allow tracking images in image/README/ directory
