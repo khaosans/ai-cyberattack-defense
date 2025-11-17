@@ -1,0 +1,226 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+  workflow_dispatch:  # Allow manual triggering
+
+# Cancel in-progress runs for the same workflow/PR to save costs
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # Fast-fail linting and formatting checks
+  lint:
+    name: Lint & Format Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('ai_tools/requirements.txt', 'tests/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install linting dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install black isort flake8
+
+      - name: Check code formatting with Black
+        run: |
+          black --check --line-length=100 ai_tools/ dashboard/ tests/ || (echo "❌ Code formatting check failed. Run 'black ai_tools/ dashboard/ tests/' to fix." && exit 1)
+
+      - name: Check import sorting with isort
+        run: |
+          isort --check-only --profile=black --line-length=100 ai_tools/ dashboard/ tests/ || (echo "❌ Import sorting check failed. Run 'isort ai_tools/ dashboard/ tests/' to fix." && exit 1)
+
+      - name: Lint with flake8
+        run: |
+          flake8 ai_tools/ dashboard/ tests/ --max-line-length=100 --exclude=__pycache__ --count --statistics
+
+  # Security scanning
+  security:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-security-${{ hashFiles('ai_tools/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-security-
+
+      - name: Install security tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install bandit safety
+
+      - name: Run Bandit security scan
+        run: |
+          bandit -r ai_tools/ dashboard/ -f json -o bandit-report.json || true
+          bandit -r ai_tools/ dashboard/ -ll
+
+      - name: Check dependencies for known vulnerabilities
+        run: |
+          safety check --file ai_tools/requirements.txt || true
+
+  # Unit tests - fast feedback
+  test-unit:
+    name: Unit Tests (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.8', '3.10', '3.11']
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ matrix.python-version }}-${{ hashFiles('ai_tools/requirements.txt', 'tests/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-${{ matrix.python-version }}-
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r ai_tools/requirements.txt
+          pip install -r tests/requirements.txt
+
+      - name: Run unit tests with coverage
+        run: |
+          pytest tests/unit/ \
+            -v \
+            --cov=ai_tools \
+            --cov-report=term-missing \
+            --cov-report=xml \
+            --cov-report=html \
+            --cov-fail-under=80 \
+            -m "not requires_ollama"
+
+      - name: Upload coverage reports
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coverage-unit-${{ matrix.python-version }}
+          path: |
+            coverage.xml
+            htmlcov/
+          retention-days: 7
+
+  # Integration tests - run in parallel with unit tests
+  test-integration:
+    name: Integration Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-integration-${{ hashFiles('ai_tools/requirements.txt', 'tests/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-integration-
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r ai_tools/requirements.txt
+          pip install -r tests/requirements.txt
+
+      - name: Run integration tests (skip E2E and Ollama-dependent tests)
+        env:
+          OLLAMA_ENABLED: 'false'
+        run: |
+          # E2E tests (test_dashboard_e2e.py) are excluded via pytest.ini testpaths = tests
+          pytest tests/integration/ \
+            -v \
+            --cov=ai_tools \
+            --cov-append \
+            --cov-report=term-missing \
+            -m "not requires_ollama"
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-results-integration
+          path: |
+            .pytest_cache/
+          retention-days: 7
+
+  # Combined coverage report
+  coverage:
+    name: Coverage Report
+    runs-on: ubuntu-latest
+    needs: [test-unit, test-integration]
+    timeout-minutes: 5
+    if: always()
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download all coverage artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: coverage-*
+          merge-multiple: true
+
+      - name: Generate combined coverage report
+        run: |
+          echo "Coverage reports downloaded from unit tests"
+          ls -la coverage.xml htmlcov/ || echo "No coverage files found"
+
+      - name: Comment PR with coverage
+        if: github.event_name == 'pull_request'
+        uses: py-cov-action/python-coverage-comment-action@v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MINIMUM_GREEN: 80
+          MINIMUM_ORANGE: 70
+
