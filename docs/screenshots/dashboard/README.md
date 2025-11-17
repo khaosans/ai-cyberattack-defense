@@ -4,12 +4,12 @@ This directory contains screenshots of the AI Cyberattack Defense Dashboard for 
 
 ## Required Images
 
-The following images should be placed in this directory:
+The following images are currently in this directory and referenced in the main README:
 
-1. **main-dashboard.png** - Main dashboard interface showing threat level gauge, timeline, and real-time detection metrics
-2. **threat-detection-overview.png** - Comprehensive threat analysis dashboard overview
-3. **pattern-distribution.png** - Attack pattern distribution chart with recent alerts and detections
-4. **security-assistant.png** - AI security assistant chat interface
+1. **main-dashboard.png** - Main dashboard interface showing simulation controls, AI analysis settings (Ollama integration), threat level gauge, threat score timeline, and pattern distribution visualizations
+2. **threat-detection-overview.png** - Comprehensive threat analysis dashboard showing threat timeline, current threat level gauge (semi-circular with color-coded zones), threat score timeline graph with threshold lines, and status indicators
+3. **pattern-distribution.png** - Attack pattern distribution bar chart displaying four pattern types (normal, behavioral_anomaly, superhuman_speed, systematic_enumeration) with recent alerts and detections table
+4. **security-assistant.png** - AI-powered security assistant chat interface ("Ask Security Assistant") providing detailed explanations of threat intelligence charts and visualizations
 
 ## Image Specifications
 
