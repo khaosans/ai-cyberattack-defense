@@ -508,16 +508,13 @@ See [Architecture Documentation](./docs/ARCHITECTURE.md) for detailed system arc
 
 ## 🔄 CI/CD Pipeline
 
-This project uses GitHub Actions for continuous integration. The CI pipeline ensures code quality and basic functionality for demonstration purposes.
+This project uses GitHub Actions for continuous integration. The CI pipeline performs basic repository checks for demonstration purposes.
 
 ### CI Workflow Features
 
-- **Automated Testing**: Runs unit and integration tests across Python 3.10 and 3.11 (skipping Ollama-dependent tests)
-- **Code Quality Checks**: Enforces formatting (Black), import sorting (isort), and linting (flake8)
-- **TypeScript Checks**: Runs linting and build checks for the Next.js frontend
-- **Coverage Reporting**: Maintains 60%+ code coverage requirement for demonstration purposes
-- **Parallel Execution**: Runs tests and checks in parallel for faster feedback
-- **Lean Configuration**: Uses caching and minimal matrix strategy for efficient CI runs
+- **Basic Repository Check**: Verifies repository structure and checkout
+- **Non-Blocking**: CI checks are informational and won't block merges
+- **Lightweight**: Minimal CI configuration for fast feedback
 
 ### CI Status
 
@@ -527,6 +524,8 @@ The CI pipeline runs automatically on:
 - Manual workflow dispatch
 
 View the latest CI status: [![CI](https://github.com/khaosans/ai-cyberattack-defense/workflows/CI/badge.svg)](https://github.com/khaosans/ai-cyberattack-defense/actions)
+
+**Note**: For a demonstration project, CI focuses on basic checks. Full testing can be run locally using the commands below.
 
 ### Running Tests Locally
 
