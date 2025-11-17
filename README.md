@@ -108,7 +108,7 @@ The dashboard will open automatically at `http://localhost:8501`
 The following screenshots demonstrate the complete AI-driven threat detection and analysis workflow. Each screenshot shows different aspects of the dashboard working together to provide comprehensive security monitoring and analysis.
 
 ### Main Dashboard
-![Threat Analysis and Detection System Dashboard](docs/screenshots/dashboard/Screenshot%202025-11-17%20at%201.32.07%20PM.png)
+![Threat Analysis and Detection System Dashboard](docs/screenshots/dashboard/main-dashboard.png)
 *Main dashboard interface featuring a left sidebar with simulation controls (Start/Stop Simulation, Trigger/Stop Attack buttons), AI analysis settings with Ollama integration status (Connected - llama3.2:3b model), and configuration sliders for superhuman speed threshold and attack intensity. The main content area displays: (1) Threat Timeline section with expandable information, (2) Threat Level Gauge showing current threat level of 9 (with -41 decrease indicator) on a color-coded semi-circular gauge (green 0-20, yellow 40-60, red 60-100), (3) Threat Score Timeline graph with malicious threshold (red dashed), suspicious activity (orange line), and normal threshold (green dashed) lines, and (4) Pattern Distribution section. The dashboard shows 65 detections ready for live updates when simulation is running.*
 
 **Quick Verification:**
@@ -193,7 +193,7 @@ The dashboard provides comprehensive real-time threat detection and analysis cap
 - **Export Capabilities**: Download detection logs and reports
 
 ### Attack Pattern Distribution & Recent Activity
-![Attack Pattern Distribution and Recent Detections](docs/screenshots/dashboard/Screenshot%202025-11-17%20at%201.32.50%20PM.png)
+![Attack Pattern Distribution and Recent Detections](docs/screenshots/dashboard/pattern-distribution.png)
 *Attack pattern distribution bar chart displaying four pattern types: normal (green bar, ~40 count), behavioral_anomaly (orange bar, ~1 count), superhuman_speed (red bar, ~1 count), and systematic_enumeration (blue bar, ~15 count). The dashboard also shows Recent Alerts section with two MEDIUM severity alerts for systematic enumeration attacks (2s ago and 5s ago) from IP 198.51.100.42 targeting /api/data/5 and /api/system/4 endpoints, each with AI Insights buttons. The Recent Detections table displays 10 entries with timestamps, threat scores (0 for normal, 35 for suspicious), threat levels (normal/suspicious), pattern types, and endpoint information, showing a mix of normal traffic and systematic enumeration detections.*
 
 ### Detection Capabilities
@@ -223,7 +223,7 @@ The system detects and classifies AI-driven attack patterns with the following c
 The dashboard includes an integrated AI security assistant powered by Ollama LLM, providing real-time threat analysis, explanations, and security guidance.
 
 ### AI Security Assistant
-![AI Security Assistant - Threat Analysis Chat Interface](docs/screenshots/dashboard/Screenshot%202025-11-17%20at%201.34.10%20PM.png)
+![AI Security Assistant - Threat Analysis Chat Interface](docs/screenshots/dashboard/security-assistant.png)
 *Interactive AI-powered security assistant chat interface ("Ask Security Assistant") that provides detailed explanations of threat intelligence charts and visualizations. When asked to "explain the charts," the assistant provides comprehensive explanations of the GTG-1002 Campaign Timeline chart, detailing key events including Initial Infection (campaign detection and reporting), First Wave (AI-powered targeted attacks), Anomaly Detection (unusual patterns alerting security teams), and Campaign Scaling (expanded multi-system targeting). The assistant also explains Attack Patterns, helping users understand threat intelligence context and visualization details. Users can ask questions about threats, detection methods, and security best practices.*
 
 ### Dashboard Workflow Overview
