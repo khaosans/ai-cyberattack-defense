@@ -4,6 +4,42 @@
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![CI](https://github.com/khaosans/ai-cyberattack-defense/workflows/CI/badge.svg)](https://github.com/khaosans/ai-cyberattack-defense/actions)
 
+## 📖 Preface
+
+### Why This Repository Exists
+
+In November 2025, Anthropic's Threat Intelligence team documented **GTG-1002**—the first large-scale, AI-orchestrated cyber espionage campaign. This event marked a paradigm shift in cybersecurity: AI agents executed 80-90% of attack operations autonomously, demonstrating capabilities that fundamentally challenge traditional defense strategies.
+
+**This repository exists to:**
+
+1. **Document and Analyze**: Provide comprehensive technical analysis of AI-driven attack patterns, methodologies, and characteristics observed in GTG-1002
+2. **Enable Defense**: Offer practical detection tools and defense mechanisms specifically designed to identify and mitigate AI-orchestrated attacks
+3. **Share Knowledge**: Create an open-source resource for security professionals, researchers, and organizations to understand and defend against this emerging threat class
+4. **Advance Research**: Contribute to the cybersecurity community's understanding of AI-powered threats through documented case studies, research foundations, and implementation roadmaps
+
+### The Threat Landscape Has Changed
+
+Traditional security tools are designed to detect human-operated attacks with predictable patterns, timing, and behaviors. AI-driven attacks operate differently:
+
+- **Superhuman Speed**: Thousands of operations per second, impossible for human operators
+- **Systematic Enumeration**: Automated endpoint discovery at unprecedented scale
+- **Behavioral Mimicry**: AI agents can mimic legitimate user behavior patterns
+- **Autonomous Decision-Making**: 80-90% of operations executed without human intervention
+
+This repository provides the tools and knowledge needed to detect, analyze, and defend against these next-generation threats.
+
+### What You'll Find Here
+
+This repository contains a complete defense system including:
+- Real-time AI pattern detection engine
+- Interactive threat analysis dashboard
+- Comprehensive threat intelligence documentation
+- Case studies and response strategies
+- Research foundations and academic citations
+- Production-ready code with comprehensive testing
+
+---
+
 This repository contains comprehensive analysis, defense tools, and case studies based on the first documented AI-orchestrated cyber espionage campaign, as reported by Anthropic Threat Intelligence in November 2025.
 
 ## 📋 Overview
@@ -26,8 +62,8 @@ In late 2025, Anthropic's Threat Intelligence team identified and disrupted a so
 
 ```bash
 # Clone the repository
-git clone <repository-url>
-cd Anthropic-Disrupting-agent-cyber-attack
+git clone https://github.com/khaosans/ai-cyberattack-defense.git
+cd ai-cyberattack-defense
 
 # Run setup script
 ./setup.sh        # Linux/macOS
