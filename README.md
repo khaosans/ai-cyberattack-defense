@@ -105,9 +105,11 @@ The dashboard will open automatically at `http://localhost:8501`
 
 ## 📸 Application Screenshots
 
+The following screenshots demonstrate the complete AI-driven threat detection and analysis workflow. Each screenshot shows different aspects of the dashboard working together to provide comprehensive security monitoring and analysis.
+
 ### Main Dashboard
-![Threat Analysis and Detection System Dashboard](docs/screenshots/dashboard/main-dashboard.png)
-*Main dashboard interface featuring simulation controls, AI analysis settings (Ollama integration), threat level gauge showing current threat level (0-100 scale), threat score timeline with threshold indicators, and pattern distribution visualizations. The dashboard displays real-time detection metrics and provides interactive controls for starting/stopping simulations and triggering attacks.*
+![Threat Analysis and Detection System Dashboard](docs/screenshots/dashboard/Screenshot%202025-11-17%20at%201.32.07%20PM.png)
+*Main dashboard interface featuring a left sidebar with simulation controls (Start/Stop Simulation, Trigger/Stop Attack buttons), AI analysis settings with Ollama integration status (Connected - llama3.2:3b model), and configuration sliders for superhuman speed threshold and attack intensity. The main content area displays: (1) Threat Timeline section with expandable information, (2) Threat Level Gauge showing current threat level of 9 (with -41 decrease indicator) on a color-coded semi-circular gauge (green 0-20, yellow 40-60, red 60-100), (3) Threat Score Timeline graph with malicious threshold (red dashed), suspicious activity (orange line), and normal threshold (green dashed) lines, and (4) Pattern Distribution section. The dashboard shows 65 detections ready for live updates when simulation is running.*
 
 **Quick Verification:**
 ```bash
@@ -115,12 +117,40 @@ python3 check_environment.py  # Check all dependencies
 python3 verify_setup.py      # Verify setup is complete
 ```
 
+### Understanding the Dashboard
+
+The dashboard provides a comprehensive view of AI-driven threat detection and analysis:
+
+1. **Left Sidebar Controls**: 
+   - **Simulation Controls**: Start/Stop simulation to generate traffic patterns, or manually trigger/stop attacks
+   - **AI Features**: Enable AI analysis and monitor Ollama connection status (shows connected model: llama3.2:3b)
+   - **Configuration**: Adjust superhuman speed threshold (default: 10 req/s) and attack intensity using sliders
+
+2. **Main Visualization Area**:
+   - **Threat Timeline**: Track threat events over time with expandable information sections
+   - **Threat Level Gauge**: Real-time threat level indicator (0-100 scale) with color coding:
+     - Green (0-20): Normal activity
+     - Yellow (40-60): Suspicious activity  
+     - Red (60-100): Malicious activity
+   - **Threat Score Timeline**: Line graph showing threat scores over time with threshold lines:
+     - Red dashed line: Malicious threshold (~55-60)
+     - Orange line: Suspicious activity tracking
+     - Green dashed line: Normal threshold (~25-30)
+   - **Pattern Distribution**: Visual breakdown of detected attack patterns
+
+3. **Recent Activity Panels**:
+   - **Recent Alerts**: Real-time security alerts with severity levels (MEDIUM/HIGH), timestamps, IP addresses, endpoints, and AI Insights buttons
+   - **Recent Detections Table**: Detailed log of all detections with timestamps, threat scores, threat levels, pattern types, and endpoint information
+
+4. **AI Security Assistant**: Interactive chat interface that explains threat intelligence, charts, and provides security guidance based on detected patterns
+
 ### First Steps
 
 1. **Start Simulation**: Click "▶️ Start Simulation" to begin generating traffic
-2. **Trigger Attack**: Click "🚀 Test Attack" to simulate GTG-1002 style attacks
-3. **Monitor Alerts**: Watch real-time threat detection and alerts
+2. **Trigger Attack**: Click "🎯 Trigger Attack" to simulate GTG-1002 style attacks
+3. **Monitor Alerts**: Watch real-time threat detection and alerts in the Recent Alerts section
 4. **Explore Visualizations**: Review charts, metrics, and threat correlations
+5. **Ask the Assistant**: Use the Security Assistant to get explanations of charts and threat patterns
 
 📖 **Need more help?** See the [Quick Start Guide](./QUICKSTART.md) for detailed instructions.
 
@@ -128,37 +158,97 @@ python3 verify_setup.py      # Verify setup is complete
 
 ### AI Pattern Detector Dashboard
 
-- **Real-Time Detection**: Identifies AI-driven attack patterns (superhuman speed, enumeration, anomalies)
-- **AI-Enhanced Analysis**: Ollama LLM integration for threat explanations and recommendations
-- **Security Assistant**: Interactive AI-powered security Q&A for threat analysis and guidance
-- **Interactive Visualizations**: Live charts, threat timeline, and pattern distribution
-- **Threat Correlation**: Vector database for finding similar attacks and threat clustering
-- **Database Persistence**: SQLite storage for detection history
+The dashboard provides comprehensive real-time threat detection and analysis capabilities:
+
+- **Real-Time Detection**: Identifies AI-driven attack patterns including:
+  - **Superhuman Speed**: Detects requests exceeding 10 req/s (configurable threshold)
+  - **Systematic Enumeration**: Identifies automated endpoint discovery patterns (e.g., `?id={n}` patterns)
+  - **Behavioral Anomalies**: Statistical deviation detection using Isolation Forest algorithms
+- **AI-Enhanced Analysis**: Ollama LLM integration (llama3.2:3b model) for:
+  - Threat explanations and context
+  - Security recommendations
+  - Pattern interpretation
+- **Security Assistant**: Interactive AI-powered chat interface ("Ask Security Assistant") that:
+  - Explains threat intelligence charts and visualizations
+  - Provides context on GTG-1002 campaign events
+  - Answers questions about threats, detection methods, and security best practices
+- **Interactive Visualizations**: 
+  - **Threat Level Gauge**: Color-coded semi-circular gauge (0-100 scale) with real-time threat level display
+  - **Threat Score Timeline**: Line graph with threshold indicators (malicious, suspicious, normal)
+  - **Pattern Distribution**: Bar chart showing breakdown of detected attack patterns
+  - **Threat Timeline**: Event tracking with expandable information sections
+- **Real-Time Alerts**: 
+  - Color-coded alerts with severity levels (MEDIUM/HIGH)
+  - Timestamps showing time since detection (e.g., "2s ago", "5s ago")
+  - IP address and endpoint information
+  - AI Insights buttons for detailed analysis
+- **Recent Detections Table**: Comprehensive log showing:
+  - Timestamps for each detection
+  - Threat scores (0-100 scale)
+  - Threat levels (normal/suspicious/malicious)
+  - Pattern types (normal, behavioral_anomaly, superhuman_speed, systematic_enumeration)
+  - Endpoint information
+- **Threat Correlation**: Vector database (ChromaDB) for finding similar attacks and threat clustering
+- **Database Persistence**: SQLite storage for detection history and analysis
 - **Export Capabilities**: Download detection logs and reports
 
-### Threat Detection Overview
-![Threat Detection Dashboard - Real-time AI Pattern Detection System](docs/screenshots/dashboard/threat-detection-overview.png)
-*Comprehensive threat analysis dashboard showing the threat timeline visualization, current threat level gauge (semi-circular gauge with color-coded zones: green for normal, yellow for suspicious, red for malicious), threat score timeline graph with threshold lines, and status indicators. The dashboard provides real-time monitoring of 65+ detections with live update capabilities when simulation is running.*
+### Attack Pattern Distribution & Recent Activity
+![Attack Pattern Distribution and Recent Detections](docs/screenshots/dashboard/Screenshot%202025-11-17%20at%201.32.50%20PM.png)
+*Attack pattern distribution bar chart displaying four pattern types: normal (green bar, ~40 count), behavioral_anomaly (orange bar, ~1 count), superhuman_speed (red bar, ~1 count), and systematic_enumeration (blue bar, ~15 count). The dashboard also shows Recent Alerts section with two MEDIUM severity alerts for systematic enumeration attacks (2s ago and 5s ago) from IP 198.51.100.42 targeting /api/data/5 and /api/system/4 endpoints, each with AI Insights buttons. The Recent Detections table displays 10 entries with timestamps, threat scores (0 for normal, 35 for suspicious), threat levels (normal/suspicious), pattern types, and endpoint information, showing a mix of normal traffic and systematic enumeration detections.*
 
 ### Detection Capabilities
 
-- **Superhuman Speed Detection**: Identifies requests occurring at impossible rates (>10 req/s)
-- **Systematic Enumeration**: Detects automated endpoint discovery patterns
-- **Behavioral Anomalies**: Statistical deviation detection using Isolation Forest
-- **Threat Scoring**: 0-100 threat score with severity classification
-- **Real-Time Alerts**: Color-coded alerts for suspicious and malicious activity
+The system detects and classifies AI-driven attack patterns with the following capabilities:
 
-### Attack Pattern Distribution
-![Attack Pattern Distribution and Detection Analysis](docs/screenshots/dashboard/pattern-distribution.png)
-*Attack pattern distribution bar chart displaying four pattern types: normal (green, ~40 count), behavioral_anomaly (orange, ~1-2 count), superhuman_speed (red, ~1-2 count), and systematic_enumeration (blue, ~15 count). The dashboard also shows recent alerts with severity indicators (MEDIUM severity shown) and a recent detections table with timestamps, threat scores, threat levels, and endpoint information for each detection.*
+- **Superhuman Speed Detection**: Identifies requests occurring at impossible rates (default threshold: >10 req/s, configurable via slider). Detected patterns are flagged as `superhuman_speed` with elevated threat scores.
+- **Systematic Enumeration**: Detects automated endpoint discovery patterns such as sequential ID enumeration (e.g., `/api/data/5`, `/api/system/4`). These patterns are classified as `systematic_enumeration` and typically receive threat scores around 35 (suspicious level).
+- **Behavioral Anomalies**: Statistical deviation detection using Isolation Forest algorithms to identify unusual patterns that don't match normal traffic behavior. Classified as `behavioral_anomaly`.
+- **Threat Scoring**: 0-100 threat score system with severity classification:
+  - **0**: Normal traffic (green)
+  - **25-35**: Suspicious activity (orange/yellow) - triggers alerts
+  - **55-60+**: Malicious threshold (red) - high-priority alerts
+- **Real-Time Alerts**: Color-coded alerts with severity levels:
+  - **MEDIUM**: Suspicious activity requiring attention (shown in screenshots)
+  - **HIGH**: Malicious activity requiring immediate response
+  - Each alert includes: timestamp, IP address, endpoint, pattern description, and AI analysis
+- **Pattern Classification**: Four main pattern types tracked:
+  - `normal`: Legitimate traffic (typically threat score 0)
+  - `behavioral_anomaly`: Statistical anomalies detected
+  - `superhuman_speed`: Requests exceeding human-possible rates
+  - `systematic_enumeration`: Automated endpoint discovery patterns
+
 
 ### AI-Powered Security Assistant
 
 The dashboard includes an integrated AI security assistant powered by Ollama LLM, providing real-time threat analysis, explanations, and security guidance.
 
 ### AI Security Assistant
-![AI Security Assistant - Threat Analysis Chat Interface](docs/screenshots/dashboard/security-assistant.png)
-*Interactive AI-powered security assistant chat interface ("Ask Security Assistant") that provides detailed explanations of threat intelligence charts and visualizations. The assistant explains campaign timelines (GTG-1002), attack patterns, key events like initial infection, first wave attacks, anomaly detection, and campaign scaling. Users can ask questions about threats, detection methods, and security best practices.*
+![AI Security Assistant - Threat Analysis Chat Interface](docs/screenshots/dashboard/Screenshot%202025-11-17%20at%201.34.10%20PM.png)
+*Interactive AI-powered security assistant chat interface ("Ask Security Assistant") that provides detailed explanations of threat intelligence charts and visualizations. When asked to "explain the charts," the assistant provides comprehensive explanations of the GTG-1002 Campaign Timeline chart, detailing key events including Initial Infection (campaign detection and reporting), First Wave (AI-powered targeted attacks), Anomaly Detection (unusual patterns alerting security teams), and Campaign Scaling (expanded multi-system targeting). The assistant also explains Attack Patterns, helping users understand threat intelligence context and visualization details. Users can ask questions about threats, detection methods, and security best practices.*
+
+### Dashboard Workflow Overview
+
+These screenshots illustrate a complete threat detection workflow:
+
+1. **Main Dashboard (Screenshot 1)**: The central command center showing:
+   - Real-time threat level monitoring (currently at level 9, decreasing)
+   - Threat score timeline tracking activity over time
+   - Configuration controls for simulation and AI analysis
+   - Status showing 65 detections ready for analysis
+
+2. **Pattern Analysis (Screenshot 2)**: Detailed breakdown showing:
+   - Distribution of attack patterns (normal vs. malicious)
+   - Real-time alerts for detected threats (systematic enumeration attacks)
+   - Complete detection log with timestamps and threat scores
+   - Example: Two MEDIUM severity alerts for systematic enumeration from IP 198.51.100.42
+
+3. **AI Assistant (Screenshots 3 & 4)**: Interactive guidance providing:
+   - Explanations of threat intelligence visualizations
+   - Context about GTG-1002 campaign events and patterns
+   - Security guidance and best practices
+   - Answers to questions about detected threats
+
+Together, these components provide a complete picture: **detection** (Main Dashboard) → **analysis** (Pattern Distribution & Alerts) → **understanding** (AI Security Assistant).
 
 ## 📁 Repository Structure
 
