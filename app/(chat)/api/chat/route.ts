@@ -48,13 +48,15 @@ export function getStreamContext() {
       globalStreamContext = createResumableStreamContext({
         waitUntil: after,
       });
-    } catch (error: any) {
-      if (error.message.includes('REDIS_URL')) {
-        console.log(
-          ' > Resumable streams are disabled due to missing REDIS_URL',
-        );
-      } else {
-        console.error(error);
+    } catch (error) {
+      if (error instanceof Error && error.message.includes('REDIS_URL')) {
+        // Resumable streams are disabled due to missing REDIS_URL
+        // This is expected in development environments without Redis
+      } else if (error instanceof Error) {
+        // Log unexpected errors in development only
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Stream context creation error:', error);
+        }
       }
     }
   }
