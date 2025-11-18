@@ -6,19 +6,19 @@ Easy command-line interface for testing the AI Pattern Detector without using th
 
 ```bash
 # Test with attack traffic (recommended for testing detections)
-python3 cli_test.py attack --count 20
+python3 tools/cli_test.py attack --count 20
 
 # Test with normal traffic
-python3 cli_test.py normal --count 10
+python3 tools/cli_test.py normal --count 10
 
 # Test with mixed traffic (30% attack)
-python3 cli_test.py mixed --count 30 --ratio 0.3
+python3 tools/cli_test.py mixed --count 30 --ratio 0.3
 
 # Test a single custom request
-python3 cli_test.py single --endpoint "/api/user/123"
+python3 tools/cli_test.py single --endpoint "/api/user/123"
 
 # Run continuous test for 60 seconds
-python3 cli_test.py continuous --duration 60 --intensity 0.5
+python3 tools/cli_test.py continuous --duration 60 --intensity 0.5
 ```
 
 ## Commands
@@ -27,7 +27,7 @@ python3 cli_test.py continuous --duration 60 --intensity 0.5
 Tests the detector with normal, human-like traffic patterns.
 
 ```bash
-python3 cli_test.py normal --count 10
+python3 tools/cli_test.py normal --count 10
 ```
 
 **Options:**
@@ -37,7 +37,7 @@ python3 cli_test.py normal --count 10
 Tests the detector with GTG-1002 style attack traffic (high-speed systematic enumeration).
 
 ```bash
-python3 cli_test.py attack --count 20
+python3 tools/cli_test.py attack --count 20
 ```
 
 **Options:**
@@ -49,7 +49,7 @@ python3 cli_test.py attack --count 20
 Tests with a mix of normal and attack traffic.
 
 ```bash
-python3 cli_test.py mixed --count 30 --ratio 0.3
+python3 tools/cli_test.py mixed --count 30 --ratio 0.3
 ```
 
 **Options:**
@@ -60,7 +60,7 @@ python3 cli_test.py mixed --count 30 --ratio 0.3
 Test a single custom request.
 
 ```bash
-python3 cli_test.py single --endpoint "/api/user/123" --ip "198.51.100.42"
+python3 tools/cli_test.py single --endpoint "/api/user/123" --ip "198.51.100.42"
 ```
 
 **Options:**
@@ -71,7 +71,7 @@ python3 cli_test.py single --endpoint "/api/user/123" --ip "198.51.100.42"
 Run a continuous test for a specified duration.
 
 ```bash
-python3 cli_test.py continuous --duration 60 --intensity 0.5
+python3 tools/cli_test.py continuous --duration 60 --intensity 0.5
 ```
 
 **Options:**
@@ -94,17 +94,17 @@ The tool shows:
 
 ### Quick Attack Test
 ```bash
-python3 cli_test.py attack --count 15
+python3 tools/cli_test.py attack --count 15
 ```
 
 ### Test Custom Endpoint
 ```bash
-python3 cli_test.py single --endpoint "/api/admin/users/1?id=1"
+python3 tools/cli_test.py single --endpoint "/api/admin/users/1?id=1"
 ```
 
 ### Long Running Test
 ```bash
-python3 cli_test.py continuous --duration 120 --intensity 0.7
+python3 tools/cli_test.py continuous --duration 120 --intensity 0.7
 ```
 
 ## Troubleshooting

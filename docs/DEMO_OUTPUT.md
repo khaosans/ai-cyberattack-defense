@@ -96,7 +96,7 @@ Detection: superhuman_speed | Score: 98 | Endpoint: /api/data/11
 ```bash
 pip install chromadb
 # or
-python3 install_vector_db.py
+python3 scripts/install_vector_db.py
 ```
 
 **Conclusion**: System handles missing optional dependencies gracefully.

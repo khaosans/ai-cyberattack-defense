@@ -104,13 +104,13 @@ Visual documentation of the dashboard is available in the `docs/screenshots/` di
 **Quick Start**:
 ```bash
 # Run automated tests
-python3 demo_dashboard.py
+python3 tools/demo_dashboard.py
 
 # Start interactive dashboard
 streamlit run dashboard/app.py
 
 # Capture screenshots (requires dashboard running)
-python3 capture_screenshots.py
+python3 scripts/capture_screenshots.py
 ```
 
 **Demo Guide**: See [`DEMO_GUIDE.md`](./DEMO_GUIDE.md) for step-by-step demonstration instructions.

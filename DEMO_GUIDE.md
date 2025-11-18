@@ -12,7 +12,7 @@ Complete step-by-step guide for demonstrating the AI Pattern Detector Dashboard.
 
 2. **Run Automated Demo** (optional):
    ```bash
-   python3 demo_dashboard.py
+   python3 tools/demo_dashboard.py
    ```
 
 ## Demo Workflow
@@ -155,7 +155,7 @@ Complete step-by-step guide for demonstrating the AI Pattern Detector Dashboard.
 - **Solution**: Refresh page (F5)
 
 ### Vector DB Not Available?
-- **Solution**: Install ChromaDB: `pip install chromadb` or `python3 install_vector_db.py`
+- **Solution**: Install ChromaDB: `pip install chromadb` or `python3 scripts/install_vector_db.py`
 - **Note**: Dashboard works fine without vector DB features
 
 ### Performance Issues?
@@ -167,17 +167,17 @@ Complete step-by-step guide for demonstrating the AI Pattern Detector Dashboard.
 
 ### Automated Demo
 ```bash
-python3 demo_dashboard.py
+python3 tools/demo_dashboard.py
 ```
 Runs all tests automatically and reports results.
 
 ### CLI Testing
 ```bash
 # Quick attack test
-python3 cli_test.py attack --count 20
+python3 tools/cli_test.py attack --count 20
 
 # Continuous test
-python3 cli_test.py continuous --duration 60 --intensity 0.7
+python3 tools/cli_test.py continuous --duration 60 --intensity 0.7
 ```
 
 ## Key Features to Highlight

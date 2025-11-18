@@ -28,7 +28,9 @@ except ImportError:
 
 def create_screenshots_dir():
     """Create screenshots directory"""
-    screenshots_dir = Path("docs/screenshots")
+    # Get project root (parent of scripts directory)
+    project_root = Path(__file__).parent.parent
+    screenshots_dir = project_root / "docs" / "screenshots"
     screenshots_dir.mkdir(parents=True, exist_ok=True)
     return screenshots_dir
 

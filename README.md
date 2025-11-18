@@ -172,8 +172,8 @@ pip install -r ai_tools/requirements.txt
 
 ```bash
 # Verify setup first (optional)
-python3 verify_setup.py  # Linux/macOS
-python verify_setup.py    # Windows
+python3 scripts/verify_setup.py  # Linux/macOS
+python scripts/verify_setup.py    # Windows
 
 # Start the dashboard
 streamlit run dashboard/app.py
@@ -191,8 +191,8 @@ The following screenshots demonstrate the complete AI-driven threat detection an
 
 **Quick Verification:**
 ```bash
-python3 check_environment.py  # Check all dependencies
-python3 verify_setup.py      # Verify setup is complete
+python3 scripts/check_environment.py  # Check all dependencies
+python3 scripts/verify_setup.py      # Verify setup is complete
 ```
 
 ### Understanding the Dashboard
@@ -380,11 +380,23 @@ Together, these components provide a complete picture: **detection** (Main Dashb
 ├── Threat_Analysis_GTG-1002.md            # Comprehensive threat analysis
 ├── Case_Study_AI_Cyberattack_Response.md  # Case study
 ├── KEY_TAKEAWAYS_AND_FUTURE_WORK.md      # Project overview
-├── demo_dashboard.py                      # Automated demo script
-├── cli_test.py                           # CLI testing tool
-├── check_environment.py                  # Environment verification
-├── verify_setup.py                        # Setup verification
-└── install_vector_db.py                  # Vector DB installation script
+│
+├── scripts/                               # Utility scripts
+│   ├── check_environment.py              # Environment verification
+│   ├── verify_setup.py                   # Setup verification
+│   ├── verify_startup.py                 # Startup verification
+│   ├── install_vector_db.py             # Vector DB installation
+│   └── capture_screenshots.py           # Screenshot capture tool
+│
+├── tools/                                 # CLI and demo tools
+│   ├── cli_test.py                       # CLI testing tool
+│   └── demo_dashboard.py                 # Automated demo script
+│
+└── tests/                                 # Test suite
+    ├── unit/                             # Unit tests
+    ├── integration/                      # Integration tests
+    └── e2e/                              # End-to-end tests
+        └── test_dashboard_e2e.py        # E2E dashboard tests
 ```
 
 ## 📚 Documentation
@@ -458,10 +470,10 @@ Together, these components provide a complete picture: **detection** (Main Dashb
 
 ```bash
 # Run automated demo tests
-python3 demo_dashboard.py
+python3 tools/demo_dashboard.py
 
 # Run CLI tests
-python3 cli_test.py attack --count 20
+python3 tools/cli_test.py attack --count 20
 ```
 
 ### Manual Testing

@@ -8,8 +8,9 @@ import time
 from pathlib import Path
 from datetime import datetime
 
-# Add parent directory to path
-sys.path.insert(0, str(Path(__file__).parent))
+# Add project root to path
+project_root = Path(__file__).parent.parent
+sys.path.insert(0, str(project_root))
 
 from ai_tools.detection.enhanced_detector import EnhancedAIPatternDetector
 from ai_tools.simulation.attack_simulator import AttackSimulator

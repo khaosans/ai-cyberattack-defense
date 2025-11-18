@@ -7,12 +7,18 @@ import sys
 import subprocess
 from pathlib import Path
 
+# Add project root to path
+project_root = Path(__file__).parent.parent
+sys.path.insert(0, str(project_root))
+
 def run_check():
     """Run the environment check script"""
     print("Running environment check...")
     print("=" * 60)
-    result = subprocess.run([sys.executable, "check_environment.py"], 
-                          capture_output=False)
+    script_dir = Path(__file__).parent
+    check_script = script_dir / "check_environment.py"
+    result = subprocess.run([sys.executable, str(check_script)],
+                            capture_output=False)
     return result.returncode == 0
 
 def test_imports():
@@ -60,21 +66,21 @@ def main():
     print("Setup Verification")
     print("=" * 60)
     print()
-    
+
     checks = []
-    
+
     # Run environment check
     checks.append(run_check())
-    
+
     # Test imports
     checks.append(test_imports())
-    
+
     # Test detector
     checks.append(test_detector())
-    
+
     # Test dashboard components
     checks.append(test_dashboard_components())
-    
+
     # Summary
     print("\n" + "=" * 60)
     if all(checks):
@@ -85,7 +91,7 @@ def main():
     else:
         print("❌ Some checks failed.")
         print("\nPlease review the errors above and:")
-        print("  1. Run: python3 check_environment.py")
+        print("  1. Run: python3 scripts/check_environment.py")
         print("  2. Check: SETUP_GUIDE.md")
         print("  3. Verify: pip install -r ai_tools/requirements.txt")
         return 1

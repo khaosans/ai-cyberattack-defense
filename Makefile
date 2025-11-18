@@ -26,7 +26,7 @@ install:
 
 verify:
 	@echo "Verifying installation..."
-	@python3 check_environment.py || python check_environment.py
+	@python3 scripts/check_environment.py || python scripts/check_environment.py
 
 check: verify
 

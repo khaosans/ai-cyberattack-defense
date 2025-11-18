@@ -23,7 +23,7 @@ Screenshots are captured using `capture_screenshots.py` or manually following in
 streamlit run dashboard/app.py
 
 # In another terminal, capture screenshots
-python3 capture_screenshots.py
+python3 scripts/capture_screenshots.py
 ```
 
 ### Manual Capture

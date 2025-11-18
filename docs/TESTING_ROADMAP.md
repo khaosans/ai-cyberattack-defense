@@ -26,9 +26,9 @@ This document outlines the roadmap for improving the testing suite for the AI Cy
    - Performance benchmarks defined
 
 4. **Demo Scripts**
-   - `demo_dashboard.py` - Automated dashboard demo
-   - `cli_test.py` - CLI testing tool
-   - `test_dashboard_e2e.py` - End-to-end dashboard tests
+   - `tools/demo_dashboard.py` - Automated dashboard demo
+   - `tools/cli_test.py` - CLI testing tool
+   - `tests/e2e/test_dashboard_e2e.py` - End-to-end dashboard tests
 
 ### Limitations
 

@@ -78,7 +78,7 @@ echo.
 
 REM Verify installation
 echo Verifying installation...
-python check_environment.py
+python scripts\check_environment.py
 if errorlevel 1 (
     echo [WARNING] Some optional components may not be available (this is OK)
 ) else (
@@ -96,10 +96,10 @@ echo   1. Start the dashboard:
 echo      streamlit run dashboard\app.py
 echo.
 echo   2. Or run tests:
-echo      python demo_dashboard.py
+echo      python tools\demo_dashboard.py
 echo.
 echo   3. Check environment:
-echo      python check_environment.py
+echo      python scripts\check_environment.py
 echo.
 
 if exist "venv" (

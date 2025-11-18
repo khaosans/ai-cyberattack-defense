@@ -114,8 +114,8 @@ This installs:
 ### Step 4: Verify Installation
 
 ```bash
-python3 check_environment.py  # Linux/macOS
-python check_environment.py   # Windows
+python3 scripts/check_environment.py  # Linux/macOS
+python scripts/check_environment.py   # Windows
 ```
 
 This script checks:
@@ -194,8 +194,8 @@ brew install python3
 
 Run the automated test suite:
 ```bash
-python3 demo_dashboard.py  # Linux/macOS
-python demo_dashboard.py   # Windows
+python3 tools/demo_dashboard.py  # Linux/macOS
+python tools/demo_dashboard.py   # Windows
 ```
 
 Expected output:
@@ -306,7 +306,7 @@ pip install -r ai_tools/requirements.txt
 pip install chromadb --upgrade
 
 # Or use the helper script
-python3 install_vector_db.py
+python3 scripts/install_vector_db.py
 ```
 
 ### Getting Help
@@ -401,7 +401,7 @@ After successful setup:
 
 1. **Read Quick Start:** [QUICKSTART.md](./QUICKSTART.md)
 2. **Explore Dashboard:** Start with `streamlit run dashboard/app.py`
-3. **Run Demo:** `python3 demo_dashboard.py`
+3. **Run Demo:** `python3 tools/demo_dashboard.py`
 4. **Read Documentation:** [docs/README.md](./docs/README.md)
 
 ## Support

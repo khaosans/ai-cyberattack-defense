@@ -110,7 +110,7 @@ main() {
     
     # Verify installation
     print_info "Verifying installation..."
-    python3 check_environment.py
+    python3 scripts/check_environment.py
     VERIFY_EXIT=$?
     
     if [ $VERIFY_EXIT -eq 0 ]; then
@@ -147,10 +147,10 @@ main() {
     echo "     ${GREEN}streamlit run dashboard/app.py${NC}"
     echo ""
     echo "  2. Or run tests:"
-    echo "     ${GREEN}python3 demo_dashboard.py${NC}"
+    echo "     ${GREEN}python3 tools/demo_dashboard.py${NC}"
     echo ""
     echo "  3. Check environment:"
-    echo "     ${GREEN}python3 check_environment.py${NC}"
+    echo "     ${GREEN}python3 scripts/check_environment.py${NC}"
     echo ""
     
     if [ -d "venv" ] && [ -z "$VIRTUAL_ENV" ]; then
