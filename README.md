@@ -374,14 +374,17 @@ Together, these components provide a complete picture: **detection** (Main Dashb
 │   └── screenshots/                       # Visual documentation
 │
 ├── tests/                                 # Test suite
-│   ├── unit/                             # Unit tests
-│   └── integration/                      # Integration tests
+│   ├── unit/                             # Unit tests (Python)
+│   └── integration/                      # Integration tests (Python)
 │
 ├── Threat_Analysis_GTG-1002.md            # Comprehensive threat analysis
 ├── Case_Study_AI_Cyberattack_Response.md  # Case study
 ├── KEY_TAKEAWAYS_AND_FUTURE_WORK.md      # Project overview
 ├── demo_dashboard.py                      # Automated demo script
-└── cli_test.py                           # CLI testing tool
+├── cli_test.py                           # CLI testing tool
+├── check_environment.py                  # Environment verification
+├── verify_setup.py                        # Setup verification
+└── install_vector_db.py                  # Vector DB installation script
 ```
 
 ## 📚 Documentation
